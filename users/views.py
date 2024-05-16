@@ -1,29 +1,21 @@
 from django.conf import settings
-from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from djoser.social.views import ProviderAuthView
 from .serializers import UserCreateSerializer
-from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.utils import extend_schema
 from drf_spectacular.types import OpenApiTypes
 from rest_framework.permissions import AllowAny
 from users.models import CustomUser
-from django.contrib.auth.tokens import default_token_generator
-from django.core.mail import send_mail
-from djoser.views import UserViewSet
-from rest_framework.decorators import action
-from django.conf import settings
 from .serializers import *
 from rest_framework import generics
 import random
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
-from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives
 from django.utils.translation import gettext_lazy as _
 from django.utils.html import strip_tags
-
-
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
